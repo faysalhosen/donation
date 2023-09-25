@@ -1,4 +1,5 @@
 import Donations from "./Donations";
+import { Link } from "react-router-dom";
 
 const DonationsCard = ({ donation }) => {
   const {
@@ -8,22 +9,31 @@ const DonationsCard = ({ donation }) => {
     category,
     card_bg_color,
     text_color,
-    button_bg_color,
+    button_bg_color, 
   } = donation;
 
   return (
-    <div>
-      <div className="card   bg-base-100 shadow-xl">
+    <div >
+  
+     <Link to={`/donations/${id}`}>
+    
+    <div className="card   bg-base-100 shadow-xl ">
         <figure>
           <img src={picture} alt="" />
         </figure>
 
-        <div className="card-body">
-          <h1>{category}</h1>
+<div style={{background:card_bg_color}}>
+<div className="card-body">
+          <h1 className="w-20 text-center " style={{color:text_color,background:button_bg_color}}>{category}</h1>
 
-          <h2 className="card-title">{title}</h2>
+          <h2 style={{color:text_color}} className="card-title">{title}</h2>
         </div>
+</div>
       </div>
+    
+     
+     </Link>
+     
     </div>
   );
 };
