@@ -9,8 +9,12 @@ const DonationPages = () => {
     
 
     useEffect(()=>{
-        const addToStorage = JSON.parse(localStorage.getItem("DonationItems"));
-        setDonations(addToStorage)
+        
+        if(localStorage.getItem("DonationItems")){
+            const addToStorage = JSON.parse(localStorage.getItem("DonationItems"));
+            setDonations(addToStorage)
+        }
+        
        
 
     },[])
@@ -23,13 +27,13 @@ const DonationPages = () => {
         
          <div className=" grid grid-cols-1 md:grid-cols-2 gap-5">
             
-         {isShow ? donations.map(donation=> <DonationPage key={donation.id} donation = {donation}></DonationPage>)
-         : donations.slice(0,4).map(donation=> <DonationPage key={donation.id} donation = {donation}></DonationPage>)
+         {isShow ? donations?.map(donation=> <DonationPage key={donation.id} donation = {donation}></DonationPage>)
+         : donations.length && donations?.slice(0,4)?.map(donation=> <DonationPage key={donation.id} donation = {donation}></DonationPage>)
          }
             
 
         </div>
-        <button onClick={()=>setIsShow(!isShow) } className="px-5 py-2 text-white bg-green-400 flex mx-auto rounded-md mt-5">{isShow ? "See less" : "See All"}</button>
+        <button onClick={()=>setIsShow(!isShow) } className="px-5 py-2 text-white bg-green-400 flex mx-auto rounded-md mt-5">{isShow ? "hidden"  : "See All"}</button>
        </div>
         
         

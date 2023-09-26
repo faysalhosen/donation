@@ -4,7 +4,7 @@ const Logo = () => {
     return (
         <div className="flex">
            <div >
-            <img src="/public/Resources/Logo.png" alt="" />
+            <img src="https://i.ibb.co/4gf6ZXd/Logo.png" alt="" />
            </div>
            
         </div>
