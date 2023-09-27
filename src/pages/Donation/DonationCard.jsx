@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import setItem from "../../components/Utility/LocalStorage";
 
 const DonationCard = ({ donation }) => {
