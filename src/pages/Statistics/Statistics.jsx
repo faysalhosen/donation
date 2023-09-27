@@ -10,7 +10,7 @@ const Statistics = () => {
     useEffect(() => {
         const getItem = JSON.parse(localStorage.getItem('DonationItems'))
         if (getItem) {
-            setCard(getItem.length);
+            setCard(getItem);
         } else {
             setNotFound('No data found');
         }
@@ -19,8 +19,8 @@ const Statistics = () => {
 
     
     const totalCard = 12;
-    
-
+    const yourPercentage = (allCard.length/totalCard)*100;
+    const yourRemaining = 100-yourPercentage
 
     return (
         <div>
@@ -30,7 +30,7 @@ const Statistics = () => {
                        {
                          notFound ?<div> <p className="h-[80vh] flex justify-center items-center text-2xl">{notFound}</p></div> :
                          <div>
-                           <Chart className='h-[80vh] flex justify-center items-center' type="pie" height={400} series={[allCard, totalCard]}
+                           <Chart className='h-[80vh] flex justify-center items-center' type="pie" height={400} series={[yourPercentage, yourRemaining]}
                               options={{
                                 labels: ['your Donation ', 'Total Donation'],
                                 legend: {position:"bottom"}
